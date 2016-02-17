@@ -8,7 +8,7 @@
         <meta name="description" content="" />
     </head>
     <body>
-        							<script type="text/javascript">
+        			<script type="text/javascript">
                                         
                                        /* function Optellen(getal1, getal2) {
                                             return getal1 + getal2;
@@ -60,7 +60,7 @@
                                         document.write("De uitkomst is : " + uitkomst);
                                         
                                        
-							</script>
+				</script>
 							
     </body>
 </html>
