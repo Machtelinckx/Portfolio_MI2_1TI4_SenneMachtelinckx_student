@@ -9,7 +9,9 @@
     </head>
     <body>
         			<script type="text/javascript">
-                                        
+                                      
+                                      // OEFENING 1
+                                      
                                        /* function Optellen(getal1, getal2) {
                                             return getal1 + getal2;
                                         }
@@ -33,6 +35,8 @@
                                         }
                                         
                                         document.write("Het product is: " + Vermenigvuldig(3,12) + '<br>'); */
+                                        
+                                        // UITBREIDING OEFENING 1
                                         
                                         function Rekenmachine(){
                                             this.waarde1 =0;
