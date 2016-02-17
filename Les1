@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>OEF 1 - MI - Machtelinckx</title>
+        <meta name="description" content="" />
+    </head>
+    <body>
+        							<script type="text/javascript">
+                                        
+                                       /* function Optellen(getal1, getal2) {
+                                            return getal1 + getal2;
+                                        }
+                                        
+                                        document.write("De som is: " + Optellen(5,7) + '<br>'); 
+                                        
+                                        function Aftrekken(getal1, getal2) {
+                                            return getal1 - getal2;
+                                        }
+                                        
+                                        document.write("Het verschil is: " + Aftrekken(10,7) + '<br>'); 
+                                        
+                                        function Delen(getal1, getal2) {
+                                            return getal1 / getal2;
+                                        }
+                                        
+                                        document.write("Het quotient is: " + Delen(85,5) + '<br>'); 
+                                        
+                                        function Vermenigvuldig(getal1, getal2) {
+                                            return getal1 * getal2;
+                                        }
+                                        
+                                        document.write("Het product is: " + Vermenigvuldig(3,12) + '<br>'); */
+                                        
+                                        function Rekenmachine(){
+                                            this.waarde1 =0;
+                                            this.waarde2 =0;
+							
+                                            this.TelOp = function(){
+                                                return this.waarde1 + this.waarde2;
+                                            }
+                                            this.Vermenigvuldigen = function(){
+                                                return this.waarde1 * this.waarde2;
+                                            }
+                                            this.Verminder = function(){
+                                                return this.waarde1 - this.waarde2;
+                                            }
+                                            this.Deel = function(){
+                                                return this.waarde1 / this.waarde2;
+                                            }
+                                        }
+                                        var rekenen = new Rekenmachine();
+                                        rekenen.waarde1 = 5;
+                                        rekenen.waarde2 = 10;
+                                        var uitkomst;
+                                        uitkomst = rekenen.Vermenigvuldigen(); 
+	
+                                        document.write("De uitkomst is : " + uitkomst);
+                                        
+                                       
+							</script>
+							
+    </body>
+</html>
