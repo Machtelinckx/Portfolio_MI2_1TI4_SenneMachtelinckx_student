@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>LES 4 - MI2 - Machtelinckx</title>
+        <meta name="description" content="" />
+        <style>
+        </style>
+    </head>
+    <body>
+                        <script src="js/jquery-1.12.1.min.js"> </script>
+        				<script type="text/javascript">
+                         "use strict";
+                        
+                    // Oefening 1
+                          /* $(document).ready(function() {
+                            var aantal = $("li").length;
+                            $("body").append("Aantal plaatsen: " + aantal);     
+                         });*/
+                            
+                    // Oefening 4.2 
+                            $(document).ready(function(){
+                                var plaats = $("ul > li").last().detach();
+                            })
+                    
+                    // Oefening 2
+                        $(document).ready(function() {
+                            var aantalBoven = $("li").length;
+                            $("body").before("Aantal plaatsen: " + aantalBoven);
+                        });
+                            
+                    // Oefening 3
+                            $(document).ready(function() {
+                            var temperatuur = Math.floor((Math.random() * 26) + 1);
+                            $("ul > li > p").append(" : Temperatuur bedraagt : " + temperatuur);
+                            })
+                            
+                    // Oefening 4 
+                            /* $(document).ready(function(){
+                                var plaats = $("p").last().detach();
+                            }) */
+                            
+                            
+				        </script>
+        <div>
+            <ul>
+                <li>
+                    <p>Madrid</p>
+                </li>
+                <li>
+                   <p>London</p>
+                </li>
+                <li>
+                   <p>Lissabon</p>
+                </li>
+                <li>
+                    <p>Kopenhagen</p>
+                </li>
+                <li>
+                    <p>Toronto</p>
+                </li>
+            </ul>
+        </div>
+							
+    </body>
+</html>
