@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LES 9 - MI2 - Machtelinckx</title>
+     <meta charset="utf-8" />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-inline' 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		
+		<link rel="stylesheet" href="themes/simpsonsgame.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+
+		<script src="js/jquery-1.12.1.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="text/javascript">
+            "use strict";
+            
+        function getData() {
+            $.ajax(
+            {
+                dataType: 'json',
+                type: "GET",
+                url: "https://api.twitter.com/1/statuses/user_timeline.json?screen_name=buienradarnl&callback=twitter",
+                success: function(data) {
+                    $("body").append(JSON.stringify(data));
+                }, 
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert(jqXHR.status);
+                },
+                dataType: "jsonp"
+            });
+        }
+            
+        $(document).ready(function(){
+            $("#updateTijd").html(new Date().toLocaleTimeString());
+        })
+        
+        </script>
+ </head>
+    <body>
+    
+        <div data-role="page">
+            <div data-role="header">
+                <h1>Twitter status updates</h1>
+            </div>
+            <div data-role="content">
+                <ul id="status"></ul>
+            </div>
+            <div data-role="footer">
+                <h4>Laatst bijgewerkt op: <span id="updateTijd">&nbsp;</span></h4>
+            </div>
+        </div>
+        
+    </body>
+</html>
