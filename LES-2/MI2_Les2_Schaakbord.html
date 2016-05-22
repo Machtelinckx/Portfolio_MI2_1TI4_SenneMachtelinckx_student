@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Schaakbord</title>
+		<meta name="description" content="">
+		<meta name="author" content="Lotfi L">
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		<link rel="stylesheet" href="MI2_Les2_Schaakbord.css">
+</head>
+
+<body>
+    
+    <header>
+        <h1>SCHAAKBORD</h1>
+    </header>
+    
+    <div id="bord"> 
+
+       <script type="text/javascript">
+           'use strict';
+
+           var wit = 0;
+           for (wit = 0; wit < 4; wit++) {
+           
+           var zwart = 0;
+           for (zwart = 0; zwart < 8; zwart++)
+               if (zwart % 2 == 1)
+                   {
+                   document.write('<div class="zwart"> </div>');
+               }
+            else 
+                {
+                   document.write('<div class="wit"> </div>') ;
+                }
+            
+            
+           for (zwart = 0; zwart < 8; zwart++)
+               if (zwart % 2 == 1)
+                   {
+                   document.write('<div class="wit"> </div>');
+               }
+            else 
+                {
+                   document.write('<div class="zwart"> </div>') ;
+                }
+           };
+
+				</script> 
+        </div>
+	</body>
+</html>
+
