@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>LES 5 - MI2 - Machtelinckx</title>
+        <meta name="description" content="" />
+        <style>
+
+            body {
+                
+                visibility: hidden;
+            }
+        </style>
+        <script src="js/jquery-1.12.1.min.js"</script>
+        <script src="js/jquery-ui.js"></script>
+        <script type="text/javascript">
+        "use strict";
+            
+            // OEFENING 5.3.2
+            /* $(document).ready(function(){
+               $('div').css({opacity: 0, visibility: "visible"}).animate({opacity: 0.2}, 'slow');
+                $('div').css({opacity: 0.2, visibility: "visible"}).animate({opacity: 0.6}, 'slow');
+                $('div').css({opacity: 0.6, visibility: "visible"}).animate({opacity: 1}, 'slow');
+            }); */
+            
+            
+            // OEFENING 5.3.3 en 5.3.4
+            $(document).ready(function(){
+                $('div').css('visibility', 'visible');
+                $('img').on('click', function(){
+                    $('img').fadeOut('slow', function() {
+                         $('img').attr('src', 'http://img.mobypicture.com/ac9221b42e4852370dde2768686b999e_large.jpg');
+                    $('img').fadeIn('slow');
+                    })
+                })
+            })
+                            
+        </script>
+    </head>
+    <body>
+        <div style="text-align:center">	<img src="http://img.mobypicture.com/4784e2f8d760413b945c4e135be20278_large.jpg" ></div>
+							
+    </body>
+</html>
