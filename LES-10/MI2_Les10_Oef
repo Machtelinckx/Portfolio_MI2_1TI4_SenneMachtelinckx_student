@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="utf-8" />
+		<title>Les 8 : webSQL</title>
+
+		<meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-inline' 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+        <link rel="stylesheet" href="themes/hoofdstuk10.css" />
+        <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+
+		<script src="js/jquery-1.12.1.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <style>
+            #titelInfo {
+                text-align: center;
+            }
+            #info {
+                text-align: center;
+            }
+            #foto {
+                margin-left: auto;
+                margin-right: auto;
+                width: 10%;
+            }
+            #fotoDiv {
+                text-align: center;
+            }
+            
+            #toggleImage {
+                text-align: center;
+            }
+        </style>
+		
+
+		<script>
+            "use strict";
+            
+            var random = Math.floor((Math.random() * array.length))
+            var array = [
+                "is 1+1 = 2?",
+                "is 3*5=12?",
+                "is blauw een mooie kleur?"
+            ];
+            
+            $(document).ready(function(){
+                $("#toggleImage").click(function() {
+                    $(this).find('img').toggle();
+                });
+                
+                $('#ja').val($(this).is(':checked'));
+                $('#ja').change(function() {
+                    if($(this).is(":checked")) {
+                        $("img").toggle();
+                    }      
+    });
+                
+                $('#nee').val($(this).is(':checked'));
+                $('#nee').change(function() {
+                    if($(this).is(":checked")) {
+                        $("#vraag").html(array[random]);
+                    }      
+    });
+                
+                $('#onzeker').val($(this).is(':checked'));
+                $('#onzeker').change(function() {
+                    if($(this).is(":checked")) {
+                        $("#vraag").html("Ben je zeker dat je het item niet wilt sluiten?");
+                    }      
+    });
+                
+                $.ajax({
+                    type:"GET", 
+                    url: "http://www.ophalvens.net/mi2/les10/automerken.php?m=all", 
+                    dataType: "jsonp", 
+                    function (msg) {JsonpCallback(msg);
+                                   }
+            });
+                
+                function JsonpCallback(json)
+                {
+                    document.getElementById('bodyAuto').innerHtml=json.result;
+                }
+            });
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div data-role="page" id="home">
+			<div data-role="header" data-position="fixed" >
+				<h1>Introductie pagina</h1>
+			</div>
+			<div data-role="content">
+				
+                <div>
+                    <h1 id="titelInfo">Over mijzelf:</h1>
+                    <p id="info">Mijn naam is Senne Machtelinckx. Ben student informatica te Brussel. Mijn hobby is voetbal.</p>
+                    <div id="fotoDiv">
+                    <img id="foto" src="img/10562733_10203464736731100_5383815510516184788_o.jpg" alt="Foto van mijzelf" /></div>
+                </div>
+                
+			</div>
+			<div data-role="footer" data-id="footMenu" data-position="fixed" >
+				<div data-role="navbar" data-grid="b">
+					<ul>
+						<li>
+							<a href="#home">Introductie</a>
+						</li>
+						<li>
+							<a href="#afbeelding">Afbeelding</a>
+						</li>
+						<li>
+							<a href="#formulier">Formulier</a>
+						</li>
+                        <li>
+							<a href="#automerk">Automerk</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+        
+        
+		<div data-role="page" id="afbeelding">
+			<div data-role="header" data-position="fixed" >
+				<h1>Afbeelding</h1>
+			</div>
+                
+                <div id="toggleImage">
+                    <img src="img/afbeelding.jpg" width="200px" height="200px"/>
+                    <img src="img/afbeelding2.jpg" width="200px" height="200px" style="display:none"/>
+            </div>
+			<div data-role="footer" data-id="footMenu" data-position="fixed">
+				<div data-role="navbar" data-grid="b">
+					<ul>
+						<li>
+							<a href="#home">Introductie</a>
+						</li>
+						<li>
+							<a href="#afbeelding" class="ui-btn-active ui-state-persist">Afbeelding</a>
+						</li>
+						<li>
+							<a href="#formulier">Formulier</a>
+						</li>
+                         <li>
+							<a href="#automerk">Automerk</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+
+		</div>
+        
+        
+
+		<div data-role="page" id="formulier">
+			<div data-role="header" data-position="fixed" >
+				<h1>Formulier</h1>
+			</div>
+			<div data-role="content">
+				
+                <div data-role="controlgroup">
+                    <legend id="vraag">Wil je de afbeelding van de afbeelding pagina terug sluiten?</legend>
+                    <input type="checkbox" name="ja" id="ja" class="custom" />
+                    <label for="ja">Ja</label>
+                    
+                    <input type="checkbox" name="nee" id="nee" class="custom" />
+                    <label for="nee">Nee</label>
+                    
+                    <input type="checkbox" name="onzeker" id="onzeker" class="custom" />
+                    <label for="onzeker">Onzeker</label>
+                </div>
+                
+			</div>
+			<div data-role="footer" data-id="footMenu" data-position="fixed">
+				<div data-role="navbar" data-grid="b">
+					<ul>
+						<li>
+							<a href="#home">Introductie</a>
+						</li>
+						<li>
+							<a href="#afbeelding">Afbeelding</a>
+						</li>
+						<li>
+							<a href="#formulier" class="ui-btn-active ui-state-persist">Formulier</a>
+                             <li>
+							<a href="#automerk">Automerk</a>
+						</li>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+
+		</div>
+    
+    <div data-role="page" id="automerk">
+			<div data-role="header" data-position="fixed" >
+				<h1>Automerk</h1>
+			</div>
+			<div data-role="content">
+				
+                <div id="bodyAuto"></div>
+                
+			</div>
+			<div data-role="footer" data-id="footMenu" data-position="fixed">
+				<div data-role="navbar" data-grid="b">
+					<ul>
+						<li>
+							<a href="#home">Introductie</a>
+						</li>
+						<li>
+							<a href="#afbeelding" >Afbeelding</a>
+						</li>
+						<li>
+							<a href="#formulier" class="ui-btn-active ui-state-persist" >Formulier</a>
+                             <li>
+							<a href="#automerk">Automerk</a>
+						</li>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+</html>
