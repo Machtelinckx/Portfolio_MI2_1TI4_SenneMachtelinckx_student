@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LES 7 - MI2 - Machtelinckx</title>
+    
+    <style type="text/css">
+        
+        #fotos {
+            float: left;
+            width: 300px;
+            height: 240px;
+            background: #ccc;
+            margin: 10px;
+            padding: 0px;
+        }
+        
+        #fotos .image {
+            width: 300px;
+            height: 210px;
+            overflow: hidden;
+            background: #fff;
+        }
+        
+        #fotos .image img {
+            width: 100%;
+        }
+        
+        #fotos h2 {
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: .9em;
+        }
+        
+        p {
+            clear: both;
+        }
+
+    </style>
+    
+    <script type="text/javascript" src="../js/jquery-1.12.1.min.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script type="text/javascript">
+        "use strict";
+        
+        function zoekFotos() {
+            var zoekterm = $("#zoekterm").val();
+            var flickrUrl = "http://api.flickr.com/services/feeds" + "/photos_public.gne?format=json&tags=";
+            $.ajax(
+            {
+                dataType: 'json',
+                type: "GET",
+                url: flickrUrl + zoekterm + "&jsoncallback=?",
+                success: verwerkJSON
+            });
+        }
+        
+        function verwerkJSON(response) {
+            $('#fotos').html("");
+            for(var i = 0; i < response.items.length; i++) {
+                var foto = response.items[i];
+                var html = "<div class='frame'><div class='image'><a href='" + foto.link + "'><img src='" + foto.media.m + "' alt='" + foto.title + "' /></a></div><h2> " + foto.title + "</h2></div>";
+                $('#fotos').append(html);
+            }
+            $('#bron').attr("href", response.link).text("Bron: Flickr");
+            $('#titel').text(response.title);
+        }
+
+    </script>
+</head>
+<body>
+    
+    <h1>jQuery - de Basis - Foto's</h1>
+    
+    <p>
+    
+        zoekterm:
+        <input type="text" id="zoekterm" />
+        <input type="button" value="zoek" id="zoek" /><br />
+        <strong id="titel"></strong>
+        
+    </p>
+    
+    <div id="fotos">
+    </div>
+    
+    <p>
+        <a id="bron" href=""></a>
+    </p>
+
+</body>
+</html>
